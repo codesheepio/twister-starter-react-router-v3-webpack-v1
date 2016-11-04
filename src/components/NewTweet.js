@@ -3,6 +3,9 @@ import React, { Component } from 'react'
 class NewTweet extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      tweetText: '',
+    }
     this.handleOnChange = this.handleOnChange.bind(this)
     this.handleOnKeyDown = this.handleOnKeyDown.bind(this)
     this.handleTweetClick = this.handleTweetClick.bind(this)

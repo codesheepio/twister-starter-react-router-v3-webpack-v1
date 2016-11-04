@@ -5,11 +5,14 @@ import TweetList from './TweetList'
 class MainPanel extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      tweets: [],
+    }
     this.addToTweetList = this.addToTweetList.bind(this)
   }
   addToTweetList(tweet) {
     let tweetWithId = tweet
-    tweetWithId.id = this.state.tweet.length
+    tweetWithId.id = this.state.tweets.length
     this.setState({
       tweets: [
         ...this.state.tweets,
