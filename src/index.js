@@ -2,13 +2,19 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import customStyle from './styles/custom.scss'
 import mainStyle from './styles/main.scss'
-import Tweet from './components/Tweet'
+import TweetList from './components/TweetList'
 
+const tweets = [
+  {
+    id: 0, name: 'Supasate Choochaisri', username: 'kaizerwing',
+    tweetText: 'Lorem Ipsum ...' 
+  },
+  {
+    id: 1, name: 'Arnupharp Viratanapanu', username: 'topscores',
+    tweetText: 'Lorem Ipsum ...' 
+  },
+]
 const App = () => (
-  <Tweet
-    name="Supasate Choochaisri"
-    username="kaizerwing"
-    tweetText="Lorem ipsum"
-  />
+  <TweetList tweets={tweets} />
 )
 ReactDOM.render(<App />, document.getElementById('react-root'))
