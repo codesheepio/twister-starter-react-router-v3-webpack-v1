@@ -6,9 +6,14 @@ class NewTweet extends Component {
     this.state = {
       tweetText: '',
     }
+    this.addTweet = this.addTweet.bind(this)
     this.handleOnChange = this.handleOnChange.bind(this)
     this.handleOnKeyDown = this.handleOnKeyDown.bind(this)
     this.handleTweetClick = this.handleTweetClick.bind(this)
+  }
+  addTweet(tweet) {
+    this.props.addToTweetList(tweet)
+    this.setState({tweetText: ''})
   }
   handleOnChange(event) {
     this.setState({
@@ -20,14 +25,14 @@ class NewTweet extends Component {
       return
     }
     event.preventDefault()
-    this.props.addToTweetList({
+    this.addTweet({
       name: this.props.name,
       username: this.props.username,
       tweetText: this.state.tweetText,
     })
   }
   handleTweetClick(event) {
-    this.props.addToTweetList({
+    this.addTweet({
       name: this.props.name,
       username: this.props.username,
       tweetText: this.state.tweetText,     
