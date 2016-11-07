@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import NewTweet from './NewTweet'
 import TweetList from './TweetList'
 
@@ -35,15 +35,24 @@ class MainPanel extends Component {
   render() {
     return (
       <div className="main-panel">
-        <NewTweet
-          name="Arnupharp"
-          username="topscores"
-          addToTweetList={this.addToTweetList}
-        />
+        {this.props.enableTweet
+          ?<NewTweet
+            name="Arnupharp"
+            username="topscores"
+            addToTweetList={this.addToTweetList}
+          />
+          :null}
         <TweetList tweets={this.state.tweets} />
       </div>
     )
   }
 }
 
+MainPanel.propTypes = {
+  enableTweet: PropTypes.bool,
+}
+
+MainPanel.defaultProps = {
+  enableTweet: false,
+}
 export default MainPanel
