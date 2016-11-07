@@ -51,7 +51,7 @@ class BodyContainer extends React.Component {
   }
   toggleFollow() {
     if (this.state.isFollowing) {
-      unfollow(this.state.username, this.props.ownerUsername)
+      unfollow(this.state.username, this.props.params.ownerUsername)
         .then((status) => {
           this.setState({
             isFollowing: status,
@@ -60,7 +60,7 @@ class BodyContainer extends React.Component {
         })
     }
     else {
-      follow(this.state.username, this.props.ownerUsername)
+      follow(this.state.username, this.props.params.ownerUsername)
         .then((status) => {
           this.setState({
             isFollowing: status,
@@ -71,8 +71,8 @@ class BodyContainer extends React.Component {
   }
 
   render() {
-    const ownerUsername = (this.props.ownerUsername)
-                    ? this.props.ownerUsername
+    const ownerUsername = (this.props.params.ownerUsername)
+                    ? this.props.params.ownerUsername
                     : this.state.username
     const nameMap = {
       'kaizerwing': 'Supasate Choochaisri',
