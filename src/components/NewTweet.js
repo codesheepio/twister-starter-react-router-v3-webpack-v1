@@ -12,8 +12,21 @@ class NewTweet extends Component {
     this.handleTweetClick = this.handleTweetClick.bind(this)
   }
   addTweet(tweet) {
-    this.props.addToTweetList(tweet)
-    this.setState({tweetText: ''})
+    fetch('http://localhost:3000/api/tweets', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(tweet)
+    })
+    .then(response => response.json())
+    .then((data) => {
+      this.setState({
+        tweetText: '',
+      })
+      this.props.addToTweetList(data)
+    })
   }
   handleOnChange(event) {
     this.setState({
