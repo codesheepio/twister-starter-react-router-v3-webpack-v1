@@ -29,8 +29,9 @@ const ProfileFollow = (props) => {
   )
 }
 
-
 ProfileFollow.propTypes = {
   isFollowing: React.PropTypes.bool,
   handleToggleFollow: React.PropTypes.func.isRequired,
 }
+
+export default ProfileFollow
