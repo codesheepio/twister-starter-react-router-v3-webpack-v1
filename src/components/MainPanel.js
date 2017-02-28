@@ -12,9 +12,11 @@ class MainPanel extends Component {
     this.addToTweetList = this.addToTweetList.bind(this)
   }
   componentDidMount() {
-    const uri='http://localhost:3000/api/tweets'
+    const uri='http://150.107.29.233:3030/api/tweets'
     const filter=`{ "where": { "username": "${this.state.username}" }}`
-    fetch(`${uri}?filter=${filter}`)
+    fetch(`${uri}?filter=${filter}`, {
+      mode: 'cors',
+    })
       .then(response => response.json())
       .then(tweets => {
         this.setState({
