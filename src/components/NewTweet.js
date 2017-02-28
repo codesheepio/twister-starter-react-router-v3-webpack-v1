@@ -12,12 +12,13 @@ class NewTweet extends Component {
     this.handleTweetClick = this.handleTweetClick.bind(this)
   }
   addTweet(tweet) {
-    fetch('http://localhost:3000/api/tweets', {
+    fetch('http://150.107.29.233:3030/api/tweets', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
+      mode: 'cors',
       body: JSON.stringify(tweet)
     })
     .then(response => response.json())
